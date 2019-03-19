@@ -7,14 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <WrapPanel HorizontalAlignment="Center" Margin="-15,0,28.6,0">
-            <Button x:Name="OpretBooking" Content="Opret Booking"  Margin="61,73,0,0"  Width="95" Click="OpretBooking_Click" Height="18"/>
-            <Button x:Name="RedigerBooking" Content="Rediger Booking" Margin="61,96,0,0" Width="95"/>
-            <Button x:Name="SletBooking" Content="Slet Booking"  Margin="61,120,0,0"  Width="95" Height="18"/>
-            <Button x:Name="TilføjRustvogn" Content="Tilføj Rustvogn"  Margin="61,143,0,0"  Width="95" Click="Button_Click"/>
-            <Button x:Name="RedigerRustvogn" Content="Rediger Rustvogn"  Margin="61,167,0,0" Width="95"/>
-            <Button x:Name="AfslutProgram" Content="Afslut Program"  Margin="61,191,0,0"  Width="95"/>
-
+        <WrapPanel HorizontalAlignment="Center" Margin="-15,10,28.6,390">
+            <Button x:Name="OpretBooking" Content="Opret Booking" Width="95" Click="OpretBooking_Click" Height="18"/>
+            <Button x:Name="RedigerBooking" Content="Rediger Booking" Width="95" Height="18"/>
+            <Button x:Name="SletBooking" Content="Slet Booking" Width="95" Height="18"/>
+            <Button x:Name="TilføjRustvogn" Content="Tilføj Rustvogn" Width="95" Height="18" Click="Button_Click"/>
+            <Button x:Name="RedigerRustvogn" Content="Rediger Rustvogn" Width="95" Height="18"/>
+            <Button x:Name="AfslutProgram" Content="Afslut Program" Width="95" Height="18"/>
         </WrapPanel>
         
 
