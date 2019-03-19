@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Domain;
 using EventLibary;
+using System.Data.SqlClient;
 
 namespace Applikation
 {

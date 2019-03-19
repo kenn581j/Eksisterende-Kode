@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eksisterende Kode", "Eksisterende Kode\Eksisterende Kode.csproj", "{7FFD4086-E69A-4E33-9589-082381EE399F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Applikation", "Applikation\Applikation.csproj", "{6180E0D1-D70A-4DDD-A888-BF9BDA962A5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Applikation\Application.csproj", "{6180E0D1-D70A-4DDD-A888-BF9BDA962A5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{9FA65FC6-8F95-4C8C-9117-E5245477C642}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{9FA65FC6-8F95-4C8C-9117-E5245477C642}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
