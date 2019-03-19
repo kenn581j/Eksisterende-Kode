@@ -24,5 +24,15 @@ namespace Eksisterende_Kode
         {
             InitializeComponent();
         }
+
+        private void OpretBooking_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
