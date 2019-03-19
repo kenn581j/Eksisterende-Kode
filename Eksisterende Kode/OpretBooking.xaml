@@ -9,6 +9,19 @@
       Title="OpretBooking">
 
     <Grid>
-        
+        <StackPanel Margin="20, 10, 600, 20">
+            <TextBox Height="23" TextWrapping="Wrap" Text="Vælg starttidspunkt"/>
+            <TextBox Height="23" TextWrapping="Wrap" Text="Vælg sluttidspunkt"/>
+            <TextBox Height="23" TextWrapping="Wrap" Text="Skriv addresse"/>
+            <TextBox Height="23" TextWrapping="Wrap" Text="Skriv en evt. kommentar"/>
+            <TextBlock TextWrapping="Wrap" Background="White"><Run Text="Ønskes rustvogn?"/><InlineUIContainer>
+                    <CheckBox Content="Ja"  Background="White" Width="180"/>
+
+
+                </InlineUIContainer></TextBlock>
+            <Button Name="AfslutBooking" Content="Afslut og gem Booking"/>
+
+
+        </StackPanel>
     </Grid>
 </Page>

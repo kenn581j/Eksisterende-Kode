@@ -27,7 +27,7 @@ namespace Eksisterende_Kode
 
         private void OpretBooking_Click(object sender, RoutedEventArgs e)
         {
-
+            ContentFrame.NavigationService.Navigate(new OpretBooking());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
