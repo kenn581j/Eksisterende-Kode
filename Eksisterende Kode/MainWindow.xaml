@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <WrapPanel HorizontalAlignment="Center" Margin="-15,10,28.6,390">
+        <WrapPanel HorizontalAlignment="Center" Margin="-15,10,28.6,380">
             <Button x:Name="OpretBooking" Content="Opret Booking" Width="95" Click="OpretBooking_Click" Height="18"/>
             <Button x:Name="RedigerBooking" Content="Rediger Booking" Width="95" Height="18"/>
             <Button x:Name="SletBooking" Content="Slet Booking" Width="95" Height="18"/>
