@@ -15,8 +15,6 @@ namespace DomainLayer
         UnChanged
     }
 
-
-    // Creation of variables used by our program to make new Calendar entries (also known as events).
     public class CalendarEntry
     {
         public int Key { get; set; }

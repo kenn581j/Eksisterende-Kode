@@ -91,7 +91,7 @@ namespace AppLayer
 
         public bool Update(CalendarEntryRepo eventRepo, HearseRepo rustvognRepo)
         {
-            foreach (Hearse item in rustvognRepo.GetCopyHearses())
+            foreach (Hearse item in rustvognRepo.GetListOfHearses())
             {
 
             }

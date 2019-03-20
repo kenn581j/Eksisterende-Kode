@@ -10,8 +10,8 @@ namespace AppLayer
     public class Controller
     {
         private DatabaseController databaseController;
-        private HearseRepo hearseRepository;
-        private CalendarEntryRepo eventRepository;
+        private HearseRepo hearseRepo;
+        private CalendarEntryRepo eventRepo;
 
         public Controller()
         {
@@ -23,27 +23,31 @@ namespace AppLayer
 
         public bool CreateEventType(bool reservation, string start, string end, string address, string comment)
         {            
-            if (!DateTime.TryParse(start, out DateTime tstart))
+            //Both if's converts input to DateTime standard, if it fails it returns false
+            if (!DateTime.TryParse(start, out DateTime timeStart))
             {
                 return false;
             }
-            if (!DateTime.TryParse(end, out DateTime tend))
+            
+            if (!DateTime.TryParse(end, out DateTime timeEnd))
             {
                 return false;
             }
-            return eventRepository.CreateEvent(tstart, tend, address, comment, reservation);
+
+            //Calls eventRepo to create the event
+            return eventRepo.CreateEvent(timeStart, timeEnd, address, comment, reservation);
         }
 
-        public bool AlterEvent(string key, string hearse, string start, string end, string address, string comment)
+        public bool AlterEvent(int keyNo, int hearseNo, string start, string end, string address, string comment)
         {
-            if (int.TryParse(key, out int ikey) && int.TryParse(hearse, out int ihearse))
-            {
-                if (start == "") { start = null; }
-                if (end == "") { end = null; }
-                if (address == "") { address = null; }
-                if (comment == "") { comment = null; }
+            if (start == "") { start = null; }
+            if (end == "") { end = null; }
+            if (address == "") { address = null; }
+            if (comment == "") { comment = null; }
 
-                return eventRepository.AlterEvent(ikey, start, end, address, comment, ihearse);
+            if (eventRepo.AlterEvent(keyNo, hearseNo, start, end, address, comment))
+            {
+                return true;
             }
             else
             {
@@ -55,7 +59,7 @@ namespace AppLayer
         {
             if (int.TryParse(key, out int ikey))
             {
-                return eventRepository.DeleteEvent(ikey);
+                return eventRepo.DeleteEvent(ikey);
             }
             else
             {
@@ -68,19 +72,19 @@ namespace AppLayer
             foreach (Tuple<int, int> item in databaseController.StartUpHearse())
             {
                 Hearse hearse = new Hearse(item.Item2, item.Item1, Status.UnChanged);
-                hearseRepository.AddHearse(hearse);
+                hearseRepo.AddHearse(hearse);
             }
             foreach (Tuple<int, DateTime, DateTime, int, string, string> item in databaseController.StartUpEvents())
             {
-                Hearse hearse = hearseRepository.GetHearse(item.Item4);
+                Hearse hearse = hearseRepo.GetHearse(item.Item4);
                 CalendarEntry events = new CalendarEntry(item.Item1, item.Item2, item.Item3, item.Item5, item.Item6, Status.UnChanged, hearse);
-                eventRepository.AddEvent(events);
+                eventRepo.AddEvent(events);
             }
         }
 
         public void Update()
         {
-            databaseController.Update(eventRepository, hearseRepository);
+            databaseController.Update(eventRepo, hearseRepo);
         }
     }
 }
