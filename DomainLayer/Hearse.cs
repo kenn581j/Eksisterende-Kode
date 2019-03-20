@@ -9,11 +9,9 @@ namespace DomainLayer
     // Hearse class to make our hearse objects used in the calendar to check availabilty.
     public class Hearse
     {
-        // Variables 
-        public int Key;
-        public int Priority;
-        public Status Status;
-
+        public int Key { get; set; }
+        public int Priority { get; set; }
+        public Status Status { get; set; }
 
         // Hearse constructor with two parameters.
         public Hearse(int prio, Status sta)
@@ -22,13 +20,11 @@ namespace DomainLayer
             Status = sta;
         }
 
-
         // Hearse constructor with three parameters.
         public Hearse(int key, int prio, Status sta) : this(prio, sta)
         {
             Key = key;
         }
-
 
         // A simple override for the Equals function.
         public override bool Equals(object obj)

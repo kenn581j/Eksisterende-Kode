@@ -9,19 +9,14 @@ namespace AppLayer
 {
     public class CalendarEntryRepo
     {
-        // Create a list of Events
         private List<CalendarEntry> Eventslist;
-
-
-        // Here we create a variable using the HearseRepository class
         private HearseRepo HearseRepo;
 
-
-        // We make a new method called EventRepository that takes the parameter HearseRepository which we assign to "hr".
-        public CalendarEntryRepo(HearseRepo hr)
+        //Constructor
+        public CalendarEntryRepo(HearseRepo hearseRepo)
         {
             Eventslist = new List<CalendarEntry>();
-            HearseRepo = hr;
+            HearseRepo = hearseRepo;
         }
 
 
@@ -39,8 +34,7 @@ namespace AppLayer
             // Here we run an if-else loop on whether or not a hearse is needed for the event.
             if (hearseNeeded)
             {
-                // If a hearse is needed for the event, then it will tell the boolean, available, to return true. 
-                bool Available = true;
+                bool available = true;
 
                 // It will then run through the Event list to see if a hearse is available by checking if the start is later than the end or the end is before the start.
                 foreach (Hearse i in HearseRepo.GetCopyHearses())
@@ -50,13 +44,13 @@ namespace AppLayer
 
                         if (!(_Event.Status == Status.Deleted) && _Event.Hearse == i && !(_Event.End < start || _Event.Start > end))
                         {
-                            Available = false;
+                            available = false;
 
                         }
                     }
 
                     // If it is neither of those, it means the hearse is available and the AddEvent method is called to add the newly made event to the list.
-                    if (Available)
+                    if (available)
                     {
                         CalendarEntry Event = new CalendarEntry(FindHighestKey() + 1, start, end, address, comment, Status.NewlyMade, i);
                         AddEvent(Event);
@@ -64,7 +58,7 @@ namespace AppLayer
                     }
                     else
                     {
-                        Available = true;
+                        available = true;
                     }
                 }
                 return false;
@@ -82,7 +76,7 @@ namespace AppLayer
 
 
         // This method is for altering an already existing event in the list. It uses the same parameters as the CreateEvent method above.
-        public bool AlterEvent(int key, string start, string end, string address, string comment, int hearse)
+        public bool AlterEvent(int key, int hearse, string start, string end, string address, string comment)
         {
 
             // We instansiate a new _Event object of the CalendarEntry class followed by the data which the object shall contain.
@@ -119,11 +113,9 @@ namespace AppLayer
             // if the start value is not equal to 0, continue the code block.
             if (!(start == null))
             {
-                // A variable of the DateTime datatype is made.
-                DateTime ostart;
 
                 // If loop to attempt to parse the value of the start parameter to the ostart variable.
-                if (DateTime.TryParse(start, out ostart))
+                if (DateTime.TryParse(start, out DateTime ostart))
                 {
                     // If the parse succeeded; set the boolean, Available, to true.
                     bool Available = true;
