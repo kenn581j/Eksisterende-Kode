@@ -15,7 +15,8 @@
             <Button x:Name="RedigerRustvogn" Content="Rediger Rustvogn" Width="95" Height="18" Click="btn_RedigerRustvogn_Click"/>
             <Button x:Name="AfslutProgram" Content="Afslut Program" Width="95" Height="18" Click="btn_AfslutProgram_Click"/>
         </WrapPanel>
-        <Frame Name="ContentFrame" Margin="100, 100, 100, 30" NavigationUIVisibility="Hidden"/>
+        <Frame Name="ContentFrame" Margin="190,100,25,25" 
+               NavigationUIVisibility="Hidden"/>
 
 
 

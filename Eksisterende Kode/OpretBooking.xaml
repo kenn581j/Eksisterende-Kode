@@ -8,18 +8,18 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="OpretBooking">
 
-    <Grid>
-        <StackPanel Margin="20, 10, 600, 20">
-            <TextBox Height="23" TextWrapping="Wrap" Text="Vælg starttidspunkt"/>
-            <TextBox Height="23" TextWrapping="Wrap" Text="Vælg sluttidspunkt"/>
-            <TextBox Height="23" TextWrapping="Wrap" Text="Skriv addresse"/>
-            <TextBox Height="23" TextWrapping="Wrap" Text="Skriv en evt. kommentar"/>
-            <TextBlock TextWrapping="Wrap" Background="White"><Run Text="Ønskes rustvogn?"/><InlineUIContainer>
+    <Grid Margin="0,27,38,24">
+        <StackPanel Margin="20,10,0,20" HorizontalAlignment="Left" Width="237">
+            <TextBox Height="23" TextWrapping="Wrap" Width="180" Text="Vælg starttidspunkt"/>
+            <TextBox Height="23" TextWrapping="Wrap" Width="180" Text="Vælg sluttidspunkt"/>
+            <TextBox Height="23" TextWrapping="Wrap" Width="180" Text="Skriv addresse"/>
+            <TextBox Height="23" TextWrapping="Wrap" Width="180" Text="Skriv en evt. kommentar"/>
+            <TextBlock TextWrapping="Wrap" Width="180" Background="White"><Run Text="Ønskes rustvogn?"/><InlineUIContainer>
                     <CheckBox Content="Ja"  Background="White" Width="180"/>
 
 
                 </InlineUIContainer></TextBlock>
-            <Button Name="AfslutBooking" Content="Afslut og gem Booking"/>
+            <Button Name="AfslutBooking" Width="180" Content="Afslut og gem Booking"/>
 
 
         </StackPanel>
