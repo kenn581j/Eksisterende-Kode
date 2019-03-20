@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
-using Domain;
-using EventLibary;
-using System.Data.sqlClients;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DomainLayer;
 
-namespace Applikation
+namespace AppLayer
 {
     public class DatabaseController
     {
@@ -17,7 +19,6 @@ namespace Applikation
             StreamReader reader = new StreamReader(@"..\..\ConnectionString.txt");
             ConnectionString = reader.ReadLine();
             reader.Close();
-            
         }
 
         public bool CreateEvent(CalendarEntry events)
@@ -86,77 +87,31 @@ namespace Applikation
                 command.ExecuteNonQuery();
             }
             return true;
-        }
+        }       
 
-
-        /*
-        private string FreeHearse(DateTime start, DateTime end)
+        public bool Update(CalendarEntryRepo eventRepo, HearseRepo rustvognRepo)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
-            {
-                SqlCommand command = new SqlCommand("EXEC dbo.GET_HEARSE", connection);
-                connection.Open();
-                SqlDataReader HearseID = command.ExecuteReader();
-                List<int> plateStrings = new List<int>();
-                while (HearseID.Read())
-                {
-                    plateStrings.Add((int)HearseID[0]);
-                }
-                HearseID.Close();
-
-                command.CommandText = "EXEC dbo.free_at @PRIORITY_";
-                SqlDataReader times;
-
-                foreach (int item in plateStrings)
-                {
-                    command.Parameters.AddWithValue("@PRIORITY_", item);
-                    times = command.ExecuteReader();
-                    bool isFree = true;
-                    while (times.Read())
-                    {
-                        DateTime startTime = (DateTime)times["START_AT"];
-                        DateTime endTime = (DateTime)times["END_AT"];
-                        
-                        if (!(start > endTime || end < startTime))
-                        {
-                            isFree = false;
-                        }
-                    }
-                    times.Close();
-                    if (isFree)
-                    {
-                        return item.ToString();
-                    }
-                    command.Parameters.Clear();
-                }
-            }
-            throw new FileNotFoundException("Ingen rustvogn ledig");
-        }
-        */
-
-        public bool Update(CalendarEntryRepository eventRepository, HearseRepository rustvognReposetory)
-        {
-            foreach (Hearse item in rustvognReposetory.GetCopyHearses())
+            foreach (Hearse item in rustvognRepo.GetCopyHearses())
             {
 
             }
-            foreach (CalendarEntry item in eventRepository.GetCopyEvents())
+            foreach (CalendarEntry item in eventRepo.GetCopyEvents())
             {
-                if (item.Status == status.Changed)
+                if (item.Status == Status.Changed)
                 {
                     AlterEvent(item);
-                    item.Status = status.UnChanged;
+                    item.Status = Status.UnChanged;
                 }
-                else if (item.Status == status.Deleted)
+                else if (item.Status == Status.Deleted)
                 {
                     DeleteEvent(item.Key);
                 }
-                else if (item.Status == status.NewlyMade)
+                else if (item.Status == Status.NewlyMade)
                 {
                     CreateEvent(item);
-                    item.Status = status.UnChanged;
+                    item.Status = Status.UnChanged;
                 }
-                else if (item.Status == status.UnChanged)
+                else if (item.Status == Status.UnChanged)
                 {
                     continue;
                 }
@@ -203,11 +158,6 @@ namespace Applikation
                     int surrogateKey = (int)reader["SURROGATE_KEY"];
                     DateTime start = (DateTime)reader["START_AT"];
                     DateTime end = (DateTime)reader["END_AT"];
-                    //int vehicle;
-                    //if (int.TryParse(reader["VEHICLE"].ToString(), out vehicle ))
-                    //{
-
-                    //}
                     int vehicle = reader["VEHICLE"] == System.DBNull.Value ? default(int) : (int)reader["VEHICLE"];
                     string address = (string)reader["AT_ADDRESS"];
                     string comment = (string)reader["COMMENT"];
