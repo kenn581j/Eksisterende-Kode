@@ -10,36 +10,32 @@ namespace AppLayer
 {
     public class HearseRepo
     {
-        private List<Hearse> Hearse = new List<Hearse>();
+        private List<Hearse> hearseList = new List<Hearse>();
 
-        // Adds a hearse to the list
         public void AddHearse(Hearse hearse)
         {
-            Hearse.Add(hearse);
+            hearseList.Add(hearse);
         }
-
-
-        // Create a hearse object that takes two parameters
+        
         public void CreateHearse(int prio, Status status)
         {
 
             // For every hearse in the hearse list do ...
-            foreach (Hearse i in Hearse)
+            foreach (Hearse i in hearseList)
             {
                 if (prio == i.Priority)
                 {
                     throw new MemberAccessException();
                 }
             }
-            Hearse hearse = new Hearse(prio, status);
-            Hearse.Add(hearse);
+            hearseList.Add(new Hearse(prio, status));
         }
 
 
         // Alter a hearse object that takes two parameters
         public void AlterHearse(int prio, int cpri)
         {
-            foreach (Hearse i in Hearse)
+            foreach (Hearse i in hearseList)
             {
                 if (prio == i.Priority)
                 {
@@ -52,15 +48,14 @@ namespace AppLayer
         // Creates hearse at startup
         public void StartUpHearse(int prio)
         {
-            Hearse hearse = new Hearse(prio, Status.UnChanged);
-            Hearse.Add(hearse);
+            hearseList.Add(new Hearse(prio, Status.UnChanged));
         }
 
 
         // Deletes a hearse of the prio key parameter
         public void DeleteHearse(int prio)
         {
-            foreach (Hearse i in Hearse)
+            foreach (Hearse i in hearseList)
             {
                 if (prio == i.Priority)
                 {
@@ -73,25 +68,24 @@ namespace AppLayer
         // Method for retrieving a hearse.
         public Hearse GetHearse(int key)
         {
-            foreach (Hearse i in Hearse)
+            foreach (Hearse hearse in hearseList)
             {
-                if (i.Key == key)
+                if (hearse.Key == key)
                 {
-                    return i;
+                    return hearse;
                 }
             }
             return null;
         }
-
         
-        public List<Hearse> GetCopyHearses()
+        public List<Hearse> GetListOfHearses()
         {
-            List<Hearse> result = new List<Hearse>();
-            foreach (Hearse item in Hearse)
+            List<Hearse> list = new List<Hearse>();
+            foreach (Hearse item in hearseList)
             {
-                result.Add(item);
+                list.Add(item);
             }
-            return result;
+            return list;
         }
     }
 }

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace DomainLayer
 {
-    // Hearse class to make our hearse objects used in the calendar to check availabilty.
     public class Hearse
     {
         public int Key { get; set; }
@@ -14,29 +13,17 @@ namespace DomainLayer
         public Status Status { get; set; }
 
         // Hearse constructor with two parameters.
-        public Hearse(int prio, Status sta)
+        public Hearse(int prio, Status status) : 
+            this(0, prio, status)
         {
-            Priority = prio;
-            Status = sta;
         }
 
         // Hearse constructor with three parameters.
-        public Hearse(int key, int prio, Status sta) : this(prio, sta)
+        public Hearse(int key, int prio, Status status)
         {
             Key = key;
-        }
-
-        // A simple override for the Equals function.
-        public override bool Equals(object obj)
-        {
-            if (obj is Hearse)
-            {
-                return this.Priority == (obj as Hearse).Priority; 
-            }
-            else
-            {
-                return base.Equals(obj);
-            }
+            Priority = prio;
+            Status = status;
         }
     }
 }

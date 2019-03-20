@@ -37,7 +37,7 @@ namespace AppLayer
                 bool available = true;
 
                 // It will then run through the Event list to see if a hearse is available by checking if the start is later than the end or the end is before the start.
-                foreach (Hearse i in HearseRepo.GetCopyHearses())
+                foreach (Hearse i in HearseRepo.GetListOfHearses())
                 {
                     foreach (CalendarEntry _Event in Eventslist)
                     {
