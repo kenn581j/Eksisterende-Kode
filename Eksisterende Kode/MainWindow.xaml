@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <WrapPanel HorizontalAlignment="Center" Margin="-15,10,28.6,380">
-            <Button x:Name="OpretBooking" Content="Opret Booking" Width="95" Click="OpretBooking_Click" Height="18"/>
-            <Button x:Name="RedigerBooking" Content="Rediger Booking" Width="95" Height="18"/>
-            <Button x:Name="SletBooking" Content="Slet Booking" Width="95" Height="18"/>
-            <Button x:Name="TilføjRustvogn" Content="Tilføj Rustvogn" Width="95" Height="18" Click="Button_Click"/>
-            <Button x:Name="RedigerRustvogn" Content="Rediger Rustvogn" Width="95" Height="18"/>
-            <Button x:Name="AfslutProgram" Content="Afslut Program" Width="95" Height="18"/>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-15,10,28.6,380">
+            <Button x:Name="OpretBooking" Content="Opret Booking" Width="95" Height="18" Click="btn_OpretBooking_Click"/>
+            <Button x:Name="RedigerBooking" Content="Rediger Booking" Width="95" Height="18" Click="btn_RedigerBooking_Click"/>
+            <Button x:Name="SletBooking" Content="Slet Booking" Width="95" Height="18" Click="btn_SletBooking_Click"/>
+            <Button x:Name="TilføjRustvogn" Content="Tilføj Rustvogn" Width="95" Height="18" Click="btn_TilføjRustvogn_Click"/>
+            <Button x:Name="RedigerRustvogn" Content="Rediger Rustvogn" Width="95" Height="18" Click="btn_RedigerRustvogn_Click"/>
+            <Button x:Name="AfslutProgram" Content="Afslut Program" Width="95" Height="18" Click="btn_AfslutProgram_Click"/>
         </WrapPanel>
         <Frame Name="ContentFrame" Margin="100, 100, 100, 30" NavigationUIVisibility="Hidden"/>
 
