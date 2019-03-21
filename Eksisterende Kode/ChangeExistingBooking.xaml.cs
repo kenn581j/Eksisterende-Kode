@@ -20,6 +20,8 @@ namespace Eksisterende_Kode
     /// </summary>
     public partial class ChangeExistingBooking : Page
     {
+		private string originalText = string.Empty;
+
         public ChangeExistingBooking()
         {
             InitializeComponent();
@@ -28,7 +30,8 @@ namespace Eksisterende_Kode
 		private void TextBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
 		{
 			TextBox tb = sender as TextBox;
-			if(tb.Text == "Identifikationsnøgle")
+			originalText = tb.Text;
+			if(tb.Text != string.Empty)
 			{
 				tb.Text = string.Empty;
 			}
@@ -37,9 +40,10 @@ namespace Eksisterende_Kode
 		private void TextBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
 		{
 			TextBox tb = sender as TextBox;
+
 			if(tb.Text == string.Empty)
 			{
-				tb.Text = "Identifikationsnøgle";
+				tb.Text = originalText;
 			}
 		}
 

@@ -15,10 +15,10 @@
         </WrapPanel>
 
         <StackPanel Name="stackPanel"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="237" Visibility="Hidden">
-            <TextBox Height="23" TextWrapping="Wrap" Width="180" Text="Vælg nyt starttidspunkt"/>
-            <TextBox Height="23" TextWrapping="Wrap" Width="180" Text="Vælg nyt sluttidspunkt"/>
-            <TextBox Height="23" TextWrapping="Wrap" Width="180" Text="Skriv nyt addresse"/>
-            <TextBox Height="23" TextWrapping="Wrap" Width="180" Text="Skriv en evt. kommentar"/>
+            <TextBox GotKeyboardFocus="TextBox_GotKeyboardFocus" LostKeyboardFocus="TextBox_LostKeyboardFocus" Height="23" TextWrapping="Wrap" Width="180" Text="Vælg nyt starttidspunkt"/>
+            <TextBox GotKeyboardFocus="TextBox_GotKeyboardFocus" LostKeyboardFocus="TextBox_LostKeyboardFocus" Height="23" TextWrapping="Wrap" Width="180" Text="Vælg nyt sluttidspunkt"/>
+            <TextBox GotKeyboardFocus="TextBox_GotKeyboardFocus" LostKeyboardFocus="TextBox_LostKeyboardFocus" Height="23" TextWrapping="Wrap" Width="180" Text="Skriv nyt addresse"/>
+            <TextBox GotKeyboardFocus="TextBox_GotKeyboardFocus" LostKeyboardFocus="TextBox_LostKeyboardFocus" Height="23" TextWrapping="Wrap" Width="180" Text="Skriv en evt. kommentar"/>
             <TextBlock TextWrapping="Wrap" Width="180" Background="White"><Run Text="Ønskes rustvogn?"/><InlineUIContainer>
                     <CheckBox Content="Ja"  Background="White" Width="180"/>
                 </InlineUIContainer></TextBlock>
