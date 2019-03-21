@@ -28,12 +28,11 @@ namespace Eksisterende_Kode
 		private void btn_OpretBooking_Click(object sender, RoutedEventArgs e)
 		{
 			ContentFrame.NavigationService.Navigate(new OpretBooking());
-
 		}
 
 		private void btn_RedigerBooking_Click(object sender, RoutedEventArgs e)
 		{
-
+			ContentFrame.NavigationService.Navigate(new ChangeExistingBooking());
 		}
 
 		private void btn_SletBooking_Click(object sender, RoutedEventArgs e)
