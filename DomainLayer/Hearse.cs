@@ -8,7 +8,8 @@ namespace DomainLayer
 {
     public class Hearse
     {
-        public int Key { get; set; }
+        public int Id { get; set; }
+        /*
         public int Priority { get; set; }
         public Status Status { get; set; }
 
@@ -17,13 +18,10 @@ namespace DomainLayer
             this(0, prio, status)
         {
         }
-
-        // Hearse constructor with three parameters.
-        public Hearse(int key, int prio, Status status)
+        */
+        public Hearse(int id)
         {
-            Key = key;
-            Priority = prio;
-            Status = status;
+            Id = id;
         }
     }
 }

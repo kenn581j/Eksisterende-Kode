@@ -19,10 +19,9 @@ namespace AppLayer
             HearseRepo hearseRepo = new HearseRepo();
             CalendarEntryRepo calendarEntryRepo = new CalendarEntryRepo(hearseRepo);         
         }
-
-
-        public bool CreateEventType(bool reservation, string start, string end, string address, string comment)
-        {            
+        public string CreateEvent(DateTime eventStart, DateTime eventEnd, string address, string comment,bool hearseNeeded)
+        {     
+            /*
             //Both if's converts input to DateTime standard, if it fails it returns false
             if (!DateTime.TryParse(start, out DateTime timeStart))
             {
@@ -33,9 +32,9 @@ namespace AppLayer
             {
                 return false;
             }
-
+            */
             //Calls eventRepo to create the event
-            return eventRepo.CreateEvent(timeStart, timeEnd, address, comment, reservation);
+            return eventRepo.CreateEvent(eventStart, eventEnd, address, comment, hearseNeeded);
         }
 
         public bool AlterEvent(int keyNo, int hearseNo, string start, string end, string address, string comment)
