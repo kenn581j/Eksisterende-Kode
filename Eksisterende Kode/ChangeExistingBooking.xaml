@@ -10,7 +10,7 @@
 
     <Grid>
         <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox GotKeyboardFocus="TextBox_GotKeyboardFocus" LostKeyboardFocus="TextBox_LostKeyboardFocus" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="Identifikationsnøgle" VerticalAlignment="Center" Width="120" Height="30"/>
+            <TextBox Name="tb_identification"   GotKeyboardFocus="TextBox_GotKeyboardFocus" LostKeyboardFocus="TextBox_LostKeyboardFocus" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="Identifikationsnøgle" VerticalAlignment="Center" Width="120" Height="30"/>
             <Button Content="Søg" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="40" Height="30" Click="btn_Search_Click"/>
         </WrapPanel>
 

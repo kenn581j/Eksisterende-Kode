@@ -21,6 +21,7 @@ namespace Eksisterende_Kode
     public partial class ChangeExistingBooking : Page
     {
 		private string originalText = string.Empty;
+		//private string OriginalText { get {return this.originalText; } set {if(this.originalText == string.Empty) this.originalText = value ; } } 
 
         public ChangeExistingBooking()
         {
@@ -30,8 +31,15 @@ namespace Eksisterende_Kode
 		private void TextBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
 		{
 			TextBox tb = sender as TextBox;
-			originalText = tb.Text;
-			if(tb.Text != string.Empty)
+
+		if(originalText == string.Empty)
+			{
+				originalText = tb.Text;
+			}
+			
+
+
+			if(tb.Text == originalText)
 			{
 				tb.Text = string.Empty;
 			}
@@ -45,6 +53,8 @@ namespace Eksisterende_Kode
 			{
 				tb.Text = originalText;
 			}
+
+			//originalText = string.Empty;
 		}
 
 		private void btn_Search_Click(object sender, RoutedEventArgs e)
