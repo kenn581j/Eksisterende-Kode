@@ -11,66 +11,57 @@ namespace AppLayer
     {
         private List<CalendarEntry> Eventslist;
         private HearseRepo HearseRepo;
-
-        //Constructor
+        
         public CalendarEntryRepo(HearseRepo hearseRepo)
         {
             Eventslist = new List<CalendarEntry>();
             HearseRepo = hearseRepo;
-        }
-
-
-        // Simple method for adding an Event to the Event list.
+        }     
+        
         public void AddEvent(CalendarEntry Event)
         {
             Eventslist.Add(Event);
         }
 
-
-        // The CreateEvent method takes a number of parameters which we will use to make an event in our calendar.
-        public bool CreateEvent(DateTime start, DateTime end, string address, string comment, bool hearseNeeded)
+        public string CreateEvent(DateTime eventStart, DateTime eventEnd, string address, string comment, bool hearseNeeded)
         {
-
-            // Here we run an if-else loop on whether or not a hearse is needed for the event.
-            if (hearseNeeded)
+            string msg = null;
+            if(hearseNeeded)
             {
-                bool available = true;
 
+                /*
+                bool available = true;
                 // It will then run through the Event list to see if a hearse is available by checking if the start is later than the end or the end is before the start.
                 foreach (Hearse i in HearseRepo.GetListOfHearses())
                 {
                     foreach (CalendarEntry _Event in Eventslist)
                     {
-
-                        if (!(_Event.Status == Status.Deleted) && _Event.Hearse == i && !(_Event.End < start || _Event.Start > end))
+                        if (!(_Event.Status == Status.Deleted) && _Event.Hearse == i && !(_Event.End < eventStart || _Event.Start > eventEnd))
                         {
                             available = false;
-
                         }
                     }
 
                     // If it is neither of those, it means the hearse is available and the AddEvent method is called to add the newly made event to the list.
                     if (available)
                     {
-                        CalendarEntry Event = new CalendarEntry(FindHighestKey() + 1, start, end, address, comment, Status.NewlyMade, i);
+                        CalendarEntry Event = new CalendarEntry(FindHighestKey() + 1, eventStart, eventEnd, address, comment, Status.NewlyMade, i);
                         AddEvent(Event);
-                        return true;
                     }
                     else
                     {
                         available = true;
                     }
                 }
-                return false;
+               */
             }
-
-            // If a hearse is not needed. It will simply call the method AddEvent to add the event to the list.
             else
             {
-                CalendarEntry _Event = new CalendarEntry(FindHighestKey() + 1, start, end, address, comment, Status.NewlyMade, null);
+                CalendarEntry _Event = new CalendarEntry(FindHighestKey() + 1, eventStart, eventEnd, address, comment, Status.NewlyMade, null);
                 AddEvent(_Event);
-                return true;
             }
+
+            return msg;
 
         }
 
@@ -103,7 +94,6 @@ namespace AppLayer
             {
                 _Event.Hearse = null;
             }
-
             // If it is not 0, call the GetHearse method to assign a hearse to the event.
             else
             {
